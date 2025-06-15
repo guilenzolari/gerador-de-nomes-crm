@@ -7,9 +7,7 @@ Este é um projeto em React que facilita a criação padronizada de nomes para c
 
 Você pode acessar o gerador de nomes diretamente pelo link abaixo:
 
-👉 [Acesse o gerador aqui](#)  
-_(Substitua este `#` pelo link do site assim que você hospedar o projeto)_
-
+👉 [Acesse o gerador aqui](https://guilenzolari.github.io/gerador-de-nomes-crm/)  
 
 
 ## 🚀 Finalidade
