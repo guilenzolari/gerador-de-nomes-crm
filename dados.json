@@ -1,0 +1,32 @@
+{
+  "canais": {
+    "INAPP": "INAPP",
+    "WHATSAPP": "WHATS",
+    "BANNER": "BANNER",
+    "PUSH": "PUSH",
+    "EMAIL": "EMAIL"
+  },
+  "tiposCampanha": {
+    "Promocional": "PROM",
+    "Transacional": "TRAN",
+    "Informativa": "INFO"
+  },
+  "objetivos": {
+    "Pix": "PIX",
+    "Seguro Auto Digital": "SAD",
+    "Cartão de Crédito": "CP",
+    "Consignado": "CONSIG"
+  },
+  "publico": {
+    "Assalariado": "ASS",
+    "Funcionário Público": "PUB",
+    "INSS": "INSS",
+    "Sem Classificação": "SC"
+  },
+  "resultado": {
+    "Clique": "CLICK",
+    "Desbloqueio de Cartão": "DESBLOQUEIOCARTAO",
+    "Abertura de Conta": "ABERTURACONTA",
+    "Cadastro de Chave Pix": "CADASTROCHAVEPIX"
+  }
+}
