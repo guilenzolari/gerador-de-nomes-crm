@@ -138,14 +138,10 @@ function App() {
         )}
       </div>
 
-      {/* Remova a antiga mensagem de feedback */}
-      {/* <div>
-        {copiedMessage && (
-              <span className="copy-feedback">{copiedMessage}</span>
-            )}
-      </div> */}
+      <p>
+        Feito com 💙 para facilitar o trabalho em CRM.
+      </p>
 
-      {/* Adicione o novo componente Toast */}
       <Toast message={toastMessage} show={showToast} />
     </>
   );
