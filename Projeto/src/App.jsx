@@ -2,65 +2,21 @@ import { useState } from "react";
 import "./App.css";
 import Dropdown from "./components/Dropdown/Dropdown";
 import DropdownItem from "./components/DropdownItem/DropdownItem";
-import dados from '../../dados.json';
-import { FaRegCopy } from "react-icons/fa6";
+import dados from "../../dados.json";
 import Toast from "./components/ToastContainer/ToastContainer";
-
+import CaixaTextoECopiar from "./components/CaixaTextoECopiar/CaixaTextoECopiar";
+import {
+  gerarNomeCampanha,
+  gerarNomeJornada,
+  gerarNomePersonalization,
+  gerarDataHoje,
+  todasSelecoesObrigatoriasFeitas,
+} from "./utils";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
-
-  const [selecoes, setSelecoes] = useState({
-    canais: null,
-    tiposCampanha: null,
-    objetivos: null,
-    publico: null,
-    resultado: null,
-  });
-
-  // Gera a data no formato 20250403
-  const gerarDataHoje = () => {
-    const hoje = new Date();
-    const ano = hoje.getFullYear();
-    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoje.getDate()).padStart(2, "0");
-    return `${ano}${mes}${dia}`;
-  };
-
-  const todasSelecoesFeitas = () => {
-    return Object.values(selecoes).every((selection) => selection !== null);
-  };
-
-  // Gera o nome da campanha final
-  function gerarNomeCampanha() {
-    if (inputValue === "") {
-      return (
-        `${selecoes.canais?.value || ""}_` +
-        `${selecoes.tiposCampanha?.value || ""}_` +
-        `${selecoes.objetivos?.value || ""}_` +
-        `${gerarDataHoje()}_` +
-        `${selecoes.publico?.value || ""}_` +
-        `${selecoes.resultado?.value || ""}`
-      );
-    }
-
-    const textoExtraFormatado = inputValue
-      .trim()
-      .replace(/\s+/g, "_")
-      .toUpperCase();
-
-    return (
-      `${selecoes.canais?.value || ""}_` +
-      `${selecoes.tiposCampanha?.value || ""}_` +
-      `${selecoes.objetivos?.value || ""}_` +
-      `${gerarDataHoje()}_` +
-      `${textoExtraFormatado}_` +
-      `${selecoes.publico?.value || ""}_` +
-      `${selecoes.resultado?.value || ""}`
-    );
-  }
 
   const showToastMessage = (message) => {
     setToastMessage(message);
@@ -68,24 +24,23 @@ function App() {
     setTimeout(() => {
       setShowToast(false);
       setToastMessage("");
-    }, 2000); // A mensagem desaparecerá após 2 segundos (mesma duração da animação)
+    }, 2000);
   };
 
-  const handleCopy = async () => {
-    const nomeParaCopiar = gerarNomeCampanha();
-
-    try {
-      await navigator.clipboard.writeText(nomeParaCopiar);
-      showToastMessage("Copiado!");
-    } catch (err) {
-      console.error("Falha ao copiar o texto: ", err);
-      showToastMessage("Erro ao copiar!");
-    }
-  };
+  const [selecoes, setSelecoes] = useState({
+    Canal: null,
+    "Tipo de demanda": null,
+    Produto: null,
+    Pontual: null,
+    "Canal de Direcionamento": null,
+    "Criterio de Sucesso": null,
+    PÚBLICO: null,
+    TOKEN: null, // opcional
+  });
 
   return (
     <>
-      <h1>Gerador de nomes de Campanhas - CRM</h1>
+      <h1 className="titulo">Gerador de nomes de Campanhas - CRM</h1>
 
       <div className="content">
         {Object.entries(dados).map(([categoria, opcoes]) => (
@@ -96,7 +51,7 @@ function App() {
               <>
                 {Object.entries(opcoes).map(([label, value]) => (
                   <DropdownItem
-                    key={value}
+                    key={value || label}
                     onClick={() =>
                       setSelecoes((prev) => ({
                         ...prev,
@@ -121,26 +76,25 @@ function App() {
         className="textField"
       />
 
-      <div className="caixaTextoECopiar">
-        <p className="caixaNomeCampanha">
-          <span className="texto">Nome da campanha:</span>
-          {todasSelecoesFeitas() && (
-            <span className="nomeCapanha">{gerarNomeCampanha()}</span>
-          )}
-        </p>
+      <CaixaTextoECopiar
+        titulo="Nome da Jornada:"
+        gerarNomeFn={() => gerarNomeJornada(selecoes, inputValue)}
+        showToastMessage={showToastMessage}
+      />
 
-        {todasSelecoesFeitas() && (
-          <div className="caixaBotao">
-            <button className="botaoCopiar" onClick={handleCopy}>
-              <FaRegCopy />
-            </button>
-          </div>
-        )}
-      </div>
+      <CaixaTextoECopiar
+        titulo="Nome da Campanha:"
+        gerarNomeFn={() => gerarNomeCampanha(selecoes, inputValue)}
+        showToastMessage={showToastMessage}
+      />
 
-      <p>
-        Feito com 💙 para facilitar o trabalho em CRM.
-      </p>
+      <CaixaTextoECopiar
+        titulo="Variação Personalization:"
+        gerarNomeFn={() => gerarNomePersonalization(selecoes, inputValue)}
+        showToastMessage={showToastMessage}
+      />
+
+      <p>Feito com 💙 para facilitar o trabalho em CRM.</p>
 
       <Toast message={toastMessage} show={showToast} />
     </>

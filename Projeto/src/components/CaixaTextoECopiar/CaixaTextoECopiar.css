@@ -1,0 +1,36 @@
+.caixaTextoECopiar {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.caixaNomeCampanha {
+  width: 60rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* texto à esquerda e nome à direita */
+  background-color: white;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: black;
+  border: gray 2px solid;
+  padding: 0 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.texto {
+  color: gray;
+  font-weight: bold;
+}
+
+.nomeCapanha {
+  color: black;
+  word-break: break-all; /* Evita overflow para nomes longos */
+}
+
+.botaoCopiar {
+  height: 4rem;
+}

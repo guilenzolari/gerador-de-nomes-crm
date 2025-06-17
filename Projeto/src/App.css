@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.titulo {
+  margin-bottom: 4rem;
+}
+
 .content {
   display: flex;
   gap: 1rem; /* espaçamento entre os dropdowns */
@@ -15,6 +19,7 @@
 
 .textField {
   margin-top: 2rem;
+  margin-bottom: 4rem;
   width: 40rem;
   height: 3rem;
   justify-content: center;
@@ -26,50 +31,10 @@
   border: none;
   padding-left: 30px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
 }
 
 /* Cor do texto do placeholder */
 .textField::placeholder {
   color: gray;
   opacity: 1; /* Garante que o cinza apareça mesmo em alguns navegadores */
-}
-
-
-.caixaTextoECopiar {
-  align-items: center;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 4rem;
-}
-
-.caixaNomeCampanha {
-  width: 50rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* texto à esquerda e nome à direita */
-  background-color: white;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  color: black;
-  border: gray 2px solid;
-  padding: 0 1rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.texto {
-  color: gray;
-  font-weight: bold;
-}
-
-.nomeCapanha {
-  color: black;
-  word-break: break-all; /* Evita overflow para nomes longos */
-}
-
-.botaoCopiar {
-  height: 4rem;
 }
