@@ -11,7 +11,8 @@ import {
   gerarNomeCampanha,
   gerarNomeJornada,
   gerarNomePersonalization,
-  gerarNomesCampanhasComDias
+  gerarNomesCampanhasComDias,
+  gerarNomesCampanhasTestes
 } from "./utils";
 
 function App() {
@@ -96,9 +97,17 @@ function App() {
       />
 
       <CaixaGrandeTextosECopiar
-        titulo="Variações de Nome da Campanha com Dias"
+        titulo="Variações de Nome de Campanha com Dias"
         gerarNomesFn={() => gerarNomesCampanhasComDias(selecoes, inputValue)}
         showToastMessage={showToastMessage}
+        textoExtra="Dia"
+      />
+
+      <CaixaGrandeTextosECopiar
+        titulo="Variações de Nome de Campanha para Testes"
+        gerarNomesFn={() => gerarNomesCampanhasTestes(selecoes, inputValue)}
+        showToastMessage={showToastMessage}
+        textoExtra="Teste"
       />
 
       <p>Feito com 💙 para facilitar o trabalho em CRM</p>

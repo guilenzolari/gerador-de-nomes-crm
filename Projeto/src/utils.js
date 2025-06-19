@@ -129,6 +129,49 @@ function gerarNomesCampanhasComDias(selecoes, inputValue) {
   return nomesComDias;
 }
 
+function gerarNomesCampanhasTestes(selecoes, inputValue) {
+  if (!todasSelecoesObrigatoriasFeitas(selecoes)) return ["","","","","","",""];
+
+  const partesFixas = [
+    selecoes["Canal"].value,
+    selecoes["Tipo de demanda"].value,
+    selecoes["Produto"].value,
+    selecoes["Pontual"].value,
+    gerarDataHoje(),
+  ];
+
+  const extras = [];
+
+  if (inputValue.trim() !== "") {
+    const textoExtra = inputValue.trim().replace(/\s+/g, "_").toUpperCase();
+    extras.push(textoExtra);
+  }
+
+  extras.push(
+    selecoes["Canal de Direcionamento"].value,
+    selecoes["Criterio de Sucesso"].value,
+    selecoes["PÚBLICO"].value
+  );
+
+  if (selecoes["TOKEN"]?.value) {
+    extras.push(selecoes["TOKEN"].value);
+  }
+
+  const nomesComDias = [];
+
+  for (let i = 1; i <= 7; i++) {
+    const partesComDia = [
+      ...partesFixas,
+      `TST${i}`,
+      ...extras,
+      "TEMPLATE_INICIAL",
+    ];
+    nomesComDias.push(partesComDia.join("_"));
+  }
+
+  return nomesComDias;
+}
+
 const gerarDataHoje = () => {
   const hoje = new Date();
   const ano = hoje.getFullYear();
@@ -156,6 +199,7 @@ export {
   gerarNomePersonalization,
   gerarDataHoje,
   todasSelecoesObrigatoriasFeitas,
-  gerarNomesCampanhasComDias
+  gerarNomesCampanhasComDias,
+  gerarNomesCampanhasTestes
 };
 

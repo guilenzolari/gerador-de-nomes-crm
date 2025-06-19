@@ -6,6 +6,7 @@ const CaixaGrandeTextosECopiar = ({
   titulo,
   gerarNomesFn,
   showToastMessage,
+  textoExtra
 }) => {
   const nomes = gerarNomesFn();
 
@@ -19,7 +20,7 @@ const CaixaGrandeTextosECopiar = ({
         {nomes.map((nome, idx) => (
           <CaixaTextoECopiar
             key={idx}
-            titulo={`Dia ${idx + 1}`}
+            titulo={`${textoExtra} ${idx + 1}`}
             nomeFixo={nome}
             showToastMessage={showToastMessage}
           />
