@@ -5,12 +5,13 @@ import DropdownItem from "./components/DropdownItem/DropdownItem";
 import dados from "../../dados.json";
 import Toast from "./components/ToastContainer/ToastContainer";
 import CaixaTextoECopiar from "./components/CaixaTextoECopiar/CaixaTextoECopiar";
+import CaixaGrandeTextosECopiar from "./components/CaixaGrandeTextosECopiar/CaixaGrandeTextosECopiar"
+
 import {
   gerarNomeCampanha,
   gerarNomeJornada,
   gerarNomePersonalization,
-  gerarDataHoje,
-  todasSelecoesObrigatoriasFeitas,
+  gerarNomesCampanhasComDias
 } from "./utils";
 
 function App() {
@@ -77,24 +78,30 @@ function App() {
       />
 
       <CaixaTextoECopiar
-        titulo="Nome da Jornada:"
+        titulo="Nome da Jornada"
         gerarNomeFn={() => gerarNomeJornada(selecoes, inputValue)}
         showToastMessage={showToastMessage}
       />
 
       <CaixaTextoECopiar
-        titulo="Nome da Campanha:"
+        titulo="Nome da Campanha"
         gerarNomeFn={() => gerarNomeCampanha(selecoes, inputValue)}
         showToastMessage={showToastMessage}
       />
 
       <CaixaTextoECopiar
-        titulo="Variação Personalization:"
+        titulo="Variação Personalization"
         gerarNomeFn={() => gerarNomePersonalization(selecoes, inputValue)}
         showToastMessage={showToastMessage}
       />
 
-      <p>Feito com 💙 para facilitar o trabalho em CRM.</p>
+      <CaixaGrandeTextosECopiar
+        titulo="Variações de Nome da Campanha com Dias"
+        gerarNomesFn={() => gerarNomesCampanhasComDias(selecoes, inputValue)}
+        showToastMessage={showToastMessage}
+      />
+
+      <p>Feito com 💙 para facilitar o trabalho em CRM</p>
 
       <Toast message={toastMessage} show={showToast} />
     </>

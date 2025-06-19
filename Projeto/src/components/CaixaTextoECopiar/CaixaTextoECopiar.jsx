@@ -2,8 +2,8 @@ import React from "react";
 import { FaRegCopy } from "react-icons/fa";
 import "./CaixaTextoECopiar.css";
 
-const CaixaTextoECopiar = ({ titulo, gerarNomeFn, showToastMessage }) => {
-  const nome = gerarNomeFn();
+const CaixaTextoECopiar = ({ titulo, gerarNomeFn, showToastMessage, nomeFixo }) => {
+  const nome = nomeFixo ?? (gerarNomeFn ? gerarNomeFn() : "");
 
   const handleCopy = async () => {
     if (!nome) {
@@ -24,16 +24,14 @@ const CaixaTextoECopiar = ({ titulo, gerarNomeFn, showToastMessage }) => {
     <div className="caixaTextoECopiar">
       <p className="caixaNomeCampanha">
         <span className="texto">{titulo}</span>
-        {nome && <span className="nomeCapanha">{nome}</span>}
+        <span className="nomeCapanha">{nome || ""}</span>
       </p>
 
-      {nome && (
-        <div className="caixaBotao">
-          <button className="botaoCopiar" onClick={handleCopy}>
-            <FaRegCopy />
-          </button>
-        </div>
-      )}
+      <div className="caixaBotao">
+        <button className="botaoCopiar" onClick={handleCopy}>
+          <FaRegCopy />
+        </button>
+      </div>
     </div>
   );
 };
