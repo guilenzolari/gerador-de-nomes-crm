@@ -13,8 +13,8 @@ const CaixaTextoECopiar = ({ titulo, gerarNomeFn, showToastMessage, nomeFixo }) 
 
     try {
       await navigator.clipboard.writeText(nome);
-      showToastMessage?.("Copiado!");
-    } catch (err) {
+      showToastMessage?.(`${titulo} Copiado!`);
+        } catch (err) {
       console.error("Erro ao copiar:", err);
       showToastMessage?.("Erro ao copiar!");
     }
