@@ -38,3 +38,20 @@
   color: gray;
   opacity: 1; /* Garante que o cinza apareça mesmo em alguns navegadores */
 }
+
+.tituloEApagar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 1rem; /* espaço entre título e botão */
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* mantém o layout responsivo */
+}
+
+.tituloEApagar h1 {
+  margin: 0; /* remove margem padrão do h1 */
+}
+
+.tituloEApagar button:hover {
+  transform: scale(1.1);
+}

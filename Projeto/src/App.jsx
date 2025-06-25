@@ -6,6 +6,7 @@ import dados from "../../dados.json";
 import Toast from "./components/ToastContainer/ToastContainer";
 import CaixaTextoECopiar from "./components/CaixaTextoECopiar/CaixaTextoECopiar";
 import CaixaGrandeTextosECopiar from "./components/CaixaGrandeTextosECopiar/CaixaGrandeTextosECopiar"
+import { FaEraser } from "react-icons/fa";
 
 import {
   gerarNomeCampanha,
@@ -40,9 +41,30 @@ function App() {
     TOKEN: null, // opcional
   });
 
+  function resetState(){
+    setSelecoes({
+      Canal: null,
+      "Tipo de demanda": null,
+      Produto: null,
+      Pontual: null,
+      "Canal de Direcionamento": null,
+      "Criterio de Sucesso": null,
+      PÚBLICO: null,
+      TOKEN: null, // opcional
+    });
+
+    setInputValue("")
+  }
+
   return (
     <>
-      <h1 className="titulo">Gerador de nomes de Campanhas - CRM</h1>
+      <div className="tituloEApagar">
+        <h1 className="titulo">Gerador de nomes de Campanhas - CRM</h1>
+        <button onClick={resetState}>
+          <FaEraser />
+        </button>
+
+      </div>
 
       <div className="content">
         {Object.entries(dados).map(([categoria, opcoes]) => (
