@@ -18,6 +18,7 @@
   transition: transform 150ms ease-in-out, opacity 100ms ease-in-out;
   opacity: 0;
   pointer-events: none;
+  width: 15rem;
 }
 
 .dropdown-content::-webkit-scrollbar {

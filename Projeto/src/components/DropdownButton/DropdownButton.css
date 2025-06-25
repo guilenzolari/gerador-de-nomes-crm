@@ -1,13 +1,15 @@
 .dropdown-btn {
   display: flex;
   align-items: center;
-  width: fit-content;
+  justify-content: space-between;
+  width: 15rem;
   padding: 1rem;
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   cursor: pointer;
   border: 2px solid transparent;
+  width: 15rem;
 }
 
 .toggle-icon {
