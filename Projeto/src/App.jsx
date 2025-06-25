@@ -35,7 +35,7 @@ function App() {
     "Tipo de demanda": null,
     Produto: null,
     Pontual: null,
-    "Canal de Direcionamento": null,
+    "Direcionamento": null,
     "Criterio de Sucesso": null,
     PÚBLICO: null,
     TOKEN: null, // opcional
@@ -47,7 +47,7 @@ function App() {
       "Tipo de demanda": null,
       Produto: null,
       Pontual: null,
-      "Canal de Direcionamento": null,
+      "Direcionamento": null,
       "Criterio de Sucesso": null,
       PÚBLICO: null,
       TOKEN: null, // opcional

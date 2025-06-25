@@ -15,7 +15,7 @@ function gerarNomeCampanha(selecoes, inputValue) {
   }
 
   partes.push(
-    selecoes["Canal de Direcionamento"].value,
+    selecoes["Direcionamento"].value,
     selecoes["Criterio de Sucesso"].value,
     selecoes["PÚBLICO"].value
   );
@@ -47,7 +47,7 @@ function gerarNomePersonalization(selecoes, inputValue) {
   }
 
   partes.push(
-    selecoes["Canal de Direcionamento"].value,
+    selecoes["Direcionamento"].value,
     selecoes["Criterio de Sucesso"].value,
     selecoes["PÚBLICO"].value
   );
@@ -74,7 +74,7 @@ function gerarNomeJornada(selecoes, inputValue) {
   }
 
   partes.push(
-    selecoes["Canal de Direcionamento"].value,
+    selecoes["Direcionamento"].value,
     selecoes["Criterio de Sucesso"].value,
     selecoes["PÚBLICO"].value
   );
@@ -105,7 +105,7 @@ function gerarNomesCampanhasComDias(selecoes, inputValue) {
   }
 
   extras.push(
-    selecoes["Canal de Direcionamento"].value,
+    selecoes["Direcionamento"].value,
     selecoes["Criterio de Sucesso"].value,
     selecoes["PÚBLICO"].value
   );
@@ -148,7 +148,7 @@ function gerarNomesCampanhasTestes(selecoes, inputValue) {
   }
 
   extras.push(
-    selecoes["Canal de Direcionamento"].value,
+    selecoes["Direcionamento"].value,
     selecoes["Criterio de Sucesso"].value,
     selecoes["PÚBLICO"].value
   );
@@ -186,7 +186,7 @@ const todasSelecoesObrigatoriasFeitas = (selecoes) => {
     "Tipo de demanda",
     "Produto",
     "Pontual",
-    "Canal de Direcionamento",
+    "Direcionamento",
     "Criterio de Sucesso",
     "PÚBLICO",
   ];
