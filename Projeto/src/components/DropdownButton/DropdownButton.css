@@ -12,6 +12,10 @@
   width: 15rem;
 }
 
+.textGray {
+  color: rgb(17, 117, 233);
+}
+
 .toggle-icon {
   display: flex;
   align-items: center;
